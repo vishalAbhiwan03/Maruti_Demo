@@ -14,7 +14,7 @@ public class PaintStatusUI : MonoBehaviour
     public Color correctColor = Color.green;
     public Color underpaintColor = Color.grey;
     public Color defaultColor = Color.white;
-   // public P3DPaintedPercentage paintedPercentageScript;
+    // public P3DPaintedPercentage paintedPercentageScript;
 
     [SerializeField] private float percentageTxt;
 

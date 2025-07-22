@@ -17,8 +17,8 @@ public class SceneLoader : MonoBehaviour
 
     private void LoadScene()
     {
-        SceneManager.LoadScene("FinalScene");
         P3DPaintedPercentage.instance.CalculatePainted();
+        SceneManager.LoadScene("FinalScene");
 
         // Subscribe to sceneLoaded so we can act after scene finishes loading
         SceneManager.sceneLoaded += OnSceneLoaded;
