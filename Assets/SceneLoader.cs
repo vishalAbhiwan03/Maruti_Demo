@@ -8,6 +8,9 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private Button loadSceneBtn;
     [SerializeField] private Button startLineBtn;
     [SerializeField] private GameObject lineObject;
+    [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject disclainerPanel;
+    [SerializeField] private GameObject finishPanel;
 
     private void Start()
     {
@@ -33,11 +36,26 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(DisableAnimatorAtHalfway());
     }
 
+    private IEnumerator RemovePanel()
+    {
+        yield return new WaitForSeconds(2f);
+        startPanel.SetActive(false);
+        disclainerPanel.SetActive(false);
+    }
+    
+    private IEnumerator FinishPanelSpawn()
+    {
+        yield return new WaitForSeconds(20f);
+        finishPanel.SetActive(true);
+        
+    }
     private void StartLine()
     {
+        StartCoroutine(RemovePanel());
         Animator lineAnimator = lineObject.GetComponent<Animator>();
         Debug.Log("▶️ Starting line animation");
         lineAnimator.enabled = true;
+        StartCoroutine(FinishPanelSpawn());
     }
 
     private IEnumerator DisableAnimatorAtHalfway()
